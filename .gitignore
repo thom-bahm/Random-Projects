@@ -30,3 +30,11 @@
 *.exe
 *.out
 *.app
+*.opendb
+RandomProjects/.vs/RandomProjects/v15/.suo
+*.db
+*.log
+*.lastbuildstate
+*.vcxproj
+*.filters
+*.user
