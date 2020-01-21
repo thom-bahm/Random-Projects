@@ -9,7 +9,12 @@ int main()
 	cin >> input;
 	
 	LinkSorter linkSorter;
-	linkSorter.SortLinks(input);
+
+	vector<string> parsedList = linkSorter.ParseList(input);
 	
+	vector<string> newList = linkSorter.SortMdLinks(parsedList);
+	
+	linkSorter.DisplayList(newList);
+
 	return 0;
 }

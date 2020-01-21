@@ -1,8 +1,8 @@
 #pragma once
 #include <string>
-#include <list>
+#include <vector>
 #include <iostream>
-
+#include <list>
 using namespace std;
 
 class LinkSorter
@@ -11,8 +11,9 @@ private:
 public:
 	LinkSorter();
 	 
-	list<string> ParseList(string input);
+	vector<string> ParseList(string input);
 
-	void SortAndDisplayLinks(string nameAndLink);
-	void DisplayList(list<string> list);
+	vector<string> SortMdLinks(vector<string> list);
+
+	void DisplayList(vector<string> list);
 };

@@ -38,3 +38,5 @@ RandomProjects/.vs/RandomProjects/v15/.suo
 *.vcxproj
 *.filters
 *.user
+*.ipch
+*.tlog
