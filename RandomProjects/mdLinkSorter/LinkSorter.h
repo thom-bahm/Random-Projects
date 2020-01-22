@@ -15,5 +15,7 @@ public:
 
 	vector<string> SortMdLinks(vector<string> list);
 
+	vector<string> SortRawLinks(vector<string> list);
+
 	void DisplayList(vector<string> list);
 };

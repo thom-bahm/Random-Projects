@@ -11,14 +11,13 @@ vector<string> LinkSorter::ParseList(string input)
 {
 	vector<string> retList;
 
-	int firstBracketIndex;
-	int secondBracketIndex;
-	int firstParenIndex;
-	int secondParenIndex;
+	int firstBracketIndex = -1;
+	int secondBracketIndex = -1;
+	int firstParenIndex = -1;
+	int secondParenIndex = -1;
 
-	for (int i = 0; i < input.size(); i++)
+	for (unsigned int i = 0; i < input.size(); i++)
 	{
-		//fill retList.
 		if (input.substr(i, 1) == "[")
 		{
 			firstBracketIndex = i;
@@ -27,49 +26,45 @@ vector<string> LinkSorter::ParseList(string input)
 		{
 			secondBracketIndex = i;
 		}
-		if (input.substr(i, 1) == "(")
+		if (input.substr(i, 1) == "(" && secondBracketIndex != -1)
 		{
 			firstParenIndex = i;
 		}
-		if (input.substr(i, 1) == ")")
+		if (input.substr(i, 1) == ")" && firstParenIndex != -1)
 		{
 			secondParenIndex = i;
 		}
-
+		
 		//Error handling (kind of)
-		if (firstBracketIndex == NULL || secondBracketIndex == NULL || firstParenIndex == NULL || secondParenIndex == NULL)
+		if (firstBracketIndex == -1 || secondBracketIndex == -1 || firstParenIndex == -1 || secondParenIndex == -1)
 		{
-			throw runtime_error("Error: One of the elements was missing a bracket [] or parenthesis()");
+			//
 		}
-
+		else
+		{
+			string pushBackBracket = input.substr(firstBracketIndex, secondBracketIndex+1 - firstBracketIndex);
+			retList.push_back(pushBackBracket);
+			string pushBackParenthesis = input.substr(firstParenIndex, secondParenIndex+1 - firstParenIndex);
+			retList.push_back(pushBackParenthesis);
+			//Debug: cout << "pushBP: " << firstParenIndex << secondParenIndex << secondParenIndex + 1 - firstParenIndex << endl;
+			i += secondParenIndex+1;
+		}
 	}
+
 	return retList;
 }
 
 vector<string> LinkSorter::SortMdLinks(vector<string> list)
 {
-	
+	return list;
 }
 
 void LinkSorter::DisplayList(vector<string> list)
 {
-	string first;
-	string second;
 
-	for (int i = 0; i < list.size(); i+=2)
+	for (unsigned int i = 1; i < list.size(); i+=2)
 	{
-		if (i % 2 == 0)
-		{
-			//Assign first to i.
-			first = list[i];
-		}
-		else 
-		{
-			//Assign second to i.
-			second = list[i];
-		}
-		string line = first + second;
-
-		cout << line << endl;
+		cout << list[i-1] + list[i] << endl;
 	}
+	//[linkfirst](linkfirst.url)[linksecond](linksecond.url)
 }

@@ -3,7 +3,6 @@
 
 int main()
 {
-	
 	string input;
 	cout << "Enter Contents Of Array" << endl;
 	cin >> input;
@@ -11,10 +10,9 @@ int main()
 	LinkSorter linkSorter;
 
 	vector<string> parsedList = linkSorter.ParseList(input);
-	
-	vector<string> newList = linkSorter.SortMdLinks(parsedList);
-	
-	linkSorter.DisplayList(newList);
+
+	//vector<string> newList = linkSorter.SortMdLinks(parsedList);
+	linkSorter.DisplayList(parsedList);
 
 	return 0;
 }
