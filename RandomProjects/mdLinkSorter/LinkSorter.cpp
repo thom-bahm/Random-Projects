@@ -47,7 +47,7 @@ vector<string> LinkSorter::ParseList(string input)
 			string pushBackParenthesis = input.substr(firstParenIndex, secondParenIndex+1 - firstParenIndex);
 			retList.push_back(pushBackParenthesis);
 			//Debug: cout << "pushBP: " << firstParenIndex << secondParenIndex << secondParenIndex + 1 - firstParenIndex << endl;
-			i += secondParenIndex+1;
+			i += 1;
 		}
 	}
 
