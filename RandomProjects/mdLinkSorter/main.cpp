@@ -1,18 +1,14 @@
 #include "LinkSorter.h"
 #include <iostream>
 
-int main()
+void main()
 {
 	string input;
 	cout << "Enter Contents Of Array" << endl;
 	cin >> input;
-	
-	LinkSorter linkSorter;
+	input.c_str();
+	vector<string> parsedList = ParseList(input);
 
-	vector<string> parsedList = linkSorter.ParseList(input);
-
-	//vector<string> newList = linkSorter.SortMdLinks(parsedList);
-	linkSorter.DisplayList(parsedList);
-
-	return 0;
+	//vector<string> newList = SortMdLinks(parsedList);
+	DisplayList(parsedList);
 }
